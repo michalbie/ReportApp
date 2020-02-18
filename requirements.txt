@@ -1,0 +1,8 @@
+dnspython==1.16.0
+mysql==0.0.2
+mysql-connector-python==8.0.19
+mysqlclient==1.4.6
+protobuf==3.6.1
+PyQt5==5.14.1
+PyQt5-sip==12.7.1
+six==1.14.0
