@@ -88,7 +88,7 @@ class Database:
         self.db_connector.commit()
 
     def load_dates_to_list(self):
-        self.query = "SELECT DISTINCT date FROM Raports"
+        self.query = "SELECT DISTINCT date FROM History"
         self.cursor.execute(self.query)
         list = []
         iter = 0

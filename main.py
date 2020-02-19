@@ -66,7 +66,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, QObject):
             with open('data.json', 'w') as outfile:
                 json.dump(self.user.data, outfile)
         else:
-            QtWidgets.QMessageBox.warning(self, "Error", "You have sent a raport today.")
+            QtWidgets.QMessageBox.warning(self, "Error", "You have sent a report today.")
 
     def on_generate_raport(self):
         if self.ownerPassword_lineEdit.text() == self.user.data['owner_passwd']:
@@ -75,14 +75,14 @@ class MainWindow(QMainWindow, Ui_MainWindow, QObject):
             self.generatedRaport_textEdit.setText(raport)
             self.generatedRaport_textEdit.setReadOnly(True)
         else:
-            QtWidgets.QMessageBox.warning(self, "Error", "Wrong password. If you are not a boss, you can't generate daily raport.")
+            QtWidgets.QMessageBox.warning(self, "Error", "Wrong password. If you are not a boss, you can't generate daily report.")
 
     def on_push_raport(self):
         if self.database.check_if_pushed() == 0 and self.ownerPassword_lineEdit.text() == self.user.data['owner_passwd']:
             self.database.push_raport()
             QtWidgets.QMessageBox.information(self, "Pushed", "Today's report has been registered.")
         else:
-            QtWidgets.QMessageBox.warning(self, "Error", "Wrong password or you provided wrong password.")
+            QtWidgets.QMessageBox.warning(self, "Error", "Wrong password or you have already pushed a report.")
 
     def on_show_history(self):
         history_record = self.database.show_history(self.history_comboBox.currentText())
