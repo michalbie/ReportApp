@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+from sys import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -120,6 +120,16 @@ class Ui_MainWindow(object):
         self.outer_stackedWidget.addWidget(self.main_page)
         self.gridLayout.addWidget(self.outer_stackedWidget, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+
+        # stylesheets for windows
+        if platform == 'win32' or platform == 'win64':
+            MainWindow.setStyleSheet("background-color: #31363A;")
+            self.raport_textEdit.setStyleSheet("background-color: #222629; color: white;")
+            self.history_textEdit.setStyleSheet("background-color: #222629; color: white;")
+            self.generatedRaport_textEdit.setStyleSheet("background-color: #222629; color: white;")
+            self.raport_button.setStyleSheet("color: white;")
+            self.generate_button.setStyleSheet("color: white;")
+            self.history_button.setStyleSheet("color: white;")
 
         self.retranslateUi(MainWindow)
         self.outer_stackedWidget.setCurrentIndex(0)
